@@ -1,0 +1,38 @@
+version: '3.2'
+
+services:
+  ms_payment_engine:
+    build: ./MsPaymentEngine
+    ports:
+      - "8001:8000"
+    environment:
+      - SERVER_PORT=8000
+
+  ms_auth:
+    build: ./MsAuth
+    ports:
+      - "8002:8000"
+    environment:
+      - SERVER_PORT=8000
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB_NAME=dev
+      - POSTGRES_PORT=5432
+
+    depends_on:
+      - db
+
+  ms_api:
+    build: ./MsApi
+    environment:
+      - SERVER_PORT=8002
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_USER=dev
+      - POSTGRES_DB=dev
