@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Montserrat:wght@300&family=Poppins:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --login-and-register-inner-box-w-h: calc(100% - 4.1rem);
+  --background-page-color: #fee8ae;
+  --primary-color: #fed366;
+  --secondary-color: #50121d;
+}
+
+/* para configurar darktheme */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+/* body {
+} */
