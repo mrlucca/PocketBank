@@ -9,7 +9,7 @@ const Account = () => {
   const [cpfCnpj, setCpfCnpj] = React.useState('')
 
   return (
-    <form className="h-full w-3/6 m-auto flex flex-col items-center justify-around bg-red-300">
+    <form className="h-full w-[--width-home-centered-box-child] m-auto flex flex-col items-center justify-around bg-red-300">
       <object data="/cat-rounded.svg" type="image/svg+xml" className="h-32"></object>
 
       <PocketBankTextField

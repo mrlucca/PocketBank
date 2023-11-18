@@ -44,13 +44,17 @@ const Home = () => {
       </div>
       <MainBackground>
         <CenteredBox backgroundColorEnabled>
-          <div className="h-full w-[--width-inside-centered-box] m-auto flex flex-col items-center justify-around">
-            <div className="w-full flex flex-row justify-between items-center bg-amber-200">
-              <p>a</p>
-              <h2>{currentPage}</h2>
+          <div className="h-full w-[--width-inside-centered-box] m-auto my-1 flex flex-col items-center justify-around">
+            <div className="w-full flex flex-row justify-between items-center text-[--secondary-color]">
+              <object
+                data="/menu-icon.svg"
+                type="image/svg+xml"
+                className="h-9 cursor-pointer"
+              ></object>
+              <h2 className="text-4xl font-semibold">{currentPage}</h2>
             </div>
 
-            <div className="h-full w-full flex flex-col items-center justify-around bg-cyan-400">
+            <div className="h-full w-full pt-3 pb-4 flex flex-col items-center justify-around">
               {loadPage()}
             </div>
           </div>
