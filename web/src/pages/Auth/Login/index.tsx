@@ -1,44 +1,66 @@
-import LoginRegisterBox from '@/components/common/LoginRegisterBox';
-import MainBackground from '@/components/common/MainBackground';
-import * as constants from '@utils/constants';
-import Head from 'next/head';
-import React from 'react';
+import LoginRegisterViewComponent from '@/components/Auth/LoginRegisterViewComponent'
+import PocketBankButton from '@/components/common/PocketBankButton'
+import PocketBankTextField from '@/components/common/PocketBankTextField'
+import TitleH1 from '@/components/common/TitleH2'
+import * as constants from '@utils/constants'
+import Head from 'next/head'
+import Link from 'next/link'
+import React from 'react'
 
 const Login = () => {
+  const [user, setUser] = React.useState('')
+  const [pass, setPass] = React.useState('')
+
   const leftElements = (
-    <>
-      <h2 className="text-[34px] text-[#3E0B10] pb-9">
-        Realize login para acessar sua conta
-      </h2>
-      <object
-        data="/login-image.svg"
-        type="image/svg+xml"
-        className="h-72"
-      ></object>
-    </>
-  );
+    <div className="flex flex-col items-center justify-around h-full p-20">
+      <TitleH1 label="Realize login para acessar sua conta" />
+      <object data="/login-image.svg" type="image/svg+xml" className="h-72"></object>
+    </div>
+  )
+
+  const rightElements = (
+    <form
+      className="h-full max-w-xs mx-auto flex flex-col justify-between items-center pt-16 pb-28"
+      autoComplete="off"
+    >
+      <TitleH1 label="Login" />
+
+      <div className="w-full">
+        <PocketBankTextField labelText="Usuário" value={user} onChanged={(e) => setUser(e)} />
+
+        <div className="h-8"></div>
+
+        <PocketBankTextField
+          labelText="Senha"
+          type="password"
+          value={pass}
+          onChanged={(e) => setPass(e)}
+        />
+      </div>
+
+      <div className="w-full flex flex-col items-center">
+        <PocketBankButton labelText="Entrar" width="60%" />
+
+        <div className="h-4"></div>
+
+        <p className="text-xs">
+          Ainda não possui uma conta?{' '}
+          <Link href="/Auth/Register" className="text-[--secondary-color]">
+            Crie agora!
+          </Link>
+        </p>
+      </div>
+    </form>
+  )
 
   return (
     <>
-      <MainBackground>
-        <Head>
-          <title>Login - {constants.appName}</title>
-        </Head>
-        <LoginRegisterBox>
-          {/* left_svg */}
-          <div className="flex flex-col items-center justify-center h-full w-[60%] round top-0 left-0 bg-slate-400 p-20">
-            {leftElements}
-            {/* <input type="text" name="" id="" className="bg-red-500" /> */}
-          </div>
-
-          {/* form_wrap */}
-          <div className="absolute h-full w-2/5 left-[60%] top-0 bg-[--primary-color] rounded-[50px] shadow-md">
-            <form autoComplete="off"></form>
-          </div>
-        </LoginRegisterBox>
-      </MainBackground>
+      <Head>
+        <title>{constants.appName('Login')}</title>
+      </Head>
+      <LoginRegisterViewComponent leftElements={leftElements} rightElements={rightElements} />
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

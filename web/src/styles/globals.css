@@ -17,6 +17,8 @@
   --background-page-color: #fee8ae;
   --primary-color: #fed366;
   --secondary-color: #50121d;
+  --default-border-radius: 20px;
+  --width-inside-centered-box: 97%;
 }
 
 /* para configurar darktheme */
@@ -28,5 +30,6 @@
   }
 } */
 
-/* body {
-} */
+body {
+  font-family: 'Montserrat', sans-serif;
+}

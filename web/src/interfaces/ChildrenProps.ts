@@ -1,3 +1,3 @@
 interface ChildrenProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
